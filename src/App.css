@@ -1,38 +1,175 @@
-.App {
+/* color pallete */
+:root {
+  --color-primary: hsl(0, 93%, 68%);
+  --color-secondary: hsl(0, 36%, 70%);
+  --color-accent: hsl(0, 6%, 24%);
+  --color-white: #eee;
+  --gradient-primary: linear-gradient(
+    135deg,
+    hsl(0, 0%, 100%),
+    hsl(0, 100%, 98%)
+  );
+  --gradient-secondary: linear-gradient(
+    135deg,
+    hsl(0, 80%, 86%),
+    hsl(0, 74%, 74%)
+  );
+}
+
+.container {
+  padding: 3rem 1rem;
+}
+
+@media screen and (min-width: 400px) {
+  .container {
+    padding: 3rem 4rem;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .container {
+    padding: 3rem 8rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  
+  .container {
+    padding: 3rem 8rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  
+  .container {
+    padding: 3rem 10rem;
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: 1rem;
+}
+
+/* Grid */
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 768px) {
+  .row {
+    grid-template-columns: 60% 40%;
+  }
+
+  .col-nav {
+    grid-area: 1/1/2/2;
+  }
+
+  .col-img {
+    grid-area: 1/2/3/3;
+  }
+
+  .col-details {
+    grid-area: 2/1/3/2;
+  }
+}
+
+/*** Hero Image ***/
+.hero__image--mobile {
+  width: 100%;
+}
+
+.hero__image--desktop {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .hero__image--mobile {
+    display: none;
+  }
+
+  .hero__image--desktop {
+    display: block;
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+/*** Details ****/
+.details {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.heading {
+  font-size: 4rem;
+  letter-spacing: 15px;
+  font-weight: 600;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.heading span {
+  font-weight: 300;
+  color: var(--color-secondary);
+}
+
+.text {
+  color: var(--color-secondary);
+}
+
+@media screen and (min-width: 768px) {
+  .details {
+    text-align: left;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/*** Input ***/
+.input-group {
+  margin-top: 4rem;
+  border: 1px solid var(--color-secondary);
+  display: inline-flex;
+  border-radius: 5rem;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.input-group:focus-within {
+  box-shadow: 0 0 3px var(--color-primary);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input {
+  flex: 1;
+  border: 0;
+  padding: 1.2rem 2rem;
+  outline: 0;
+  border-radius: inherit;
+}
+
+.btn {
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.btn-input {
+  border-radius: inherit;
+  width: 8rem;
+  color: var(--color-white);
+  background-image: var(--gradient-secondary);
+}
+
+.btn-input:hover {
+  opacity: 0.8;
+  box-shadow: 0 0 5px var(--color-secondary);
+}
+
+::placeholder {
+  color: var(--color-secondary);
+  opacity: 0.5;
+}
+
+.error {
+  padding-left: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 4rem;
 }
